@@ -19,7 +19,7 @@ RUN apt-get build-dep -y -a armhf xorg-server
 
 RUN apt-get install -y libgstreamer-plugins-bad1.0-dev:armhf libgstreamer-plugins-base1.0-dev:armhf libgstreamer1.0-dev:armhf \
 libgstreamermm-1.0-dev:armhf libgstreamerd-3-dev:armhf libqt5gstreamer-dev:armhf libqtgstreamer-dev:armhf \
-libxfont1-dev:armhf libxxf86dga-dev:armhf
+libxfont1-dev:armhf libxxf86dga-dev:armhf libunwind-dev:armhf
 
 RUN cp /usr/lib/pkgconfig/xf86dgaproto.pc /usr/lib/arm-linux-gnueabihf/pkgconfig/xf86dgaproto.pc 
 
