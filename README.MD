@@ -39,7 +39,7 @@ e.g:
 
 If you want to modify your Docker image, you can open a shell by below command:
 
-	docker run -it -v rockchip /bin/bash
+	docker run -it rockchip /bin/bash
 
 After exit from container, you should use below command to save your changes.
 
