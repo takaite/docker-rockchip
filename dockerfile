@@ -42,9 +42,9 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 
 # perpare rockchip's header files
 RUN apt-get update && apt-get install -y wget
-RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/armhf/video/mpp/librockchip-mpp-dev_1.2.2-1_armhf.deb
-RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/armhf/video/mpp/librockchip-mpp1_1.2.2-1_armhf.deb
-RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/armhf/video/mpp/librockchip-rk3399-vpu0_1.2.2-1_armhf.deb
+RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/armhf/video/mpp/librockchip-mpp-dev_1.3.0-1_armhf.deb
+RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/armhf/video/mpp/librockchip-mpp1_1.3.0-1_armhf.deb
+RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/armhf/video/mpp/librockchip-vpu0_1.3.0-1_armhf.deb
 RUN dpkg -i librockchip-*.deb
 ADD ./overlay/*  /
 
