@@ -46,10 +46,10 @@ RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/a
 RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/armhf/video/mpp/librockchip-mpp1_1.3.1-1_armhf.deb
 RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/armhf/video/mpp/librockchip-vpu0_1.3.1-1_armhf.deb
 RUN dpkg -i librockchip-*.deb
+RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/armhf/libdrm/libdrm2_2.4.74-2_armhf.deb
 RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/armhf/libdrm/libdrm-dev_2.4.74-2_armhf.deb
-RUN dpkg -x libdrm-dev-*.deb /
 RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/armhf/libdrm/libdrm-rockchip1_2.4.74-2_armhf.deb
-RUN dpkg -i libdrm-rockchip1-*.deb
+RUN dpkg -i libdrm*.deb /
 ADD ./overlay/*  /
 
 # switch to a no-root user
