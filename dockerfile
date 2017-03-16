@@ -52,6 +52,8 @@ RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/a
 RUN dpkg -i libdrm*.deb /
 ADD ./overlay/*  /
 
+RUN apt-get update && apt-get install -y -f
+
 # switch to a no-root user
 RUN useradd -c 'rk user' -m -d /home/rk -s /bin/bash rk
 RUN sed -i -e '/\%sudo/ c \%sudo ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
