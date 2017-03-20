@@ -18,7 +18,7 @@ RUN apt-get update && apt-get build-dep -y -a armhf xorg-server
 
 RUN apt-get update && apt-get install -y libgstreamer-plugins-bad1.0-dev:armhf libgstreamer-plugins-base1.0-dev:armhf libgstreamer1.0-dev:armhf \
 libgstreamermm-1.0-dev:armhf libgstreamerd-3-dev:armhf libqt5gstreamer-dev:armhf libqtgstreamer-dev:armhf \
-libxfont1-dev:armhf libxxf86dga-dev:armhf libunwind-dev:armhf
+libxfont1-dev:armhf libxxf86dga-dev:armhf libunwind-dev:armhf  libnetcdf-dev:armhf
 
 RUN cp /usr/lib/pkgconfig/xf86dgaproto.pc /usr/lib/arm-linux-gnueabihf/pkgconfig/xf86dgaproto.pc 
 
@@ -49,7 +49,10 @@ RUN dpkg -i librockchip-*.deb
 RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/armhf/libdrm/libdrm2_2.4.74-2_armhf.deb
 RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/armhf/libdrm/libdrm-dev_2.4.74-2_armhf.deb
 RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/armhf/libdrm/libdrm-rockchip1_2.4.74-2_armhf.deb
-RUN dpkg -i libdrm*.deb /
+RUN dpkg -x libdrm2_2.4.74-2_armhf.deb /
+RUN dpkg -x libdrm-dev_2.4.74-2_armhf.deb /
+RUN dpkg -x libdrm-rockchip1_2.4.74-2_armhf.deb /
+
 ADD ./overlay/*  /
 
 RUN apt-get update && apt-get install -y -f
