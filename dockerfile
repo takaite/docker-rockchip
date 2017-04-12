@@ -40,19 +40,6 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     dpkg-reconfigure --frontend=noninteractive locales && \
     update-locale LANG=en_US.UTF-8
 
-# perpare rockchip's header files
-RUN apt-get update && apt-get install -y wget
-RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/armhf/video/mpp/librockchip-mpp-dev_1.3.1-1_armhf.deb
-RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/armhf/video/mpp/librockchip-mpp1_1.3.1-1_armhf.deb
-RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/armhf/video/mpp/librockchip-vpu0_1.3.1-1_armhf.deb
-RUN dpkg -i librockchip-*.deb
-RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/armhf/libdrm/libdrm2_2.4.74-2_armhf.deb
-RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/armhf/libdrm/libdrm-dev_2.4.74-2_armhf.deb
-RUN wget https://github.com/rockchip-linux/rk-rootfs-build/raw/master/packages/armhf/libdrm/libdrm-rockchip1_2.4.74-2_armhf.deb
-RUN dpkg -x libdrm2_2.4.74-2_armhf.deb /
-RUN dpkg -x libdrm-dev_2.4.74-2_armhf.deb /
-RUN dpkg -x libdrm-rockchip1_2.4.74-2_armhf.deb /
-
 ADD ./overlay/*  /
 
 RUN apt-get update && apt-get install -y -f
