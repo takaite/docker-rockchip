@@ -40,7 +40,12 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     dpkg-reconfigure --frontend=noninteractive locales && \
     update-locale LANG=en_US.UTF-8
 
-ADD ./overlay/*  /
+ADD ./overlay/  /
+
+RUN dpkg -i /packages/librockchip-*.deb
+RUN dpkg -x /packages/libdrm2_2.4.74-2_armhf.deb /
+RUN dpkg -x /packages/libdrm-dev_2.4.74-2_armhf.deb /
+RUN dpkg -x /packages/libdrm-rockchip1_2.4.74-2_armhf.deb /
 
 RUN apt-get update && apt-get install -y -f
 
