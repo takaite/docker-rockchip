@@ -27,6 +27,13 @@ RUN apt-get update && apt-get install -y qt5-qmake qt5-qmake:armhf qtbase5-dev:a
 	qtbase5-private-dev:armhf qtbase5-dev:armhf libasound2-dev:armhf libqt5quick5:armhf libqt5multimediaquick-p5:armhf qtdeclarative5-dev:armhf \
 	libopenal-dev:armhf qtmultimedia5-examples:armhf
 
+## gstreamer-plugin-good
+RUN apt-get update && apt-get install -y libgstreamer1.0-dev:armhf libraw1394-dev:armhf libiec61883-dev:armhf libavc1394-dev:armhf libv4l-dev:armhf \
+libgudev-1.0-dev:armhf libgstreamer-plugins-base1.0-dev:armhf libcairo2-dev:armhf liborc-0.4-dev:armhf libcaca-dev:armhf libspeex-dev:armhf libpng-dev:armhf \
+libshout3-dev:armhf libjpeg-dev:armhf libaa1-dev:armhf libflac-dev:armhf libdv4-dev:armhf libdv4-dev:armhf libxdamage-dev:armhf libxext-dev:armhf \
+libxfixes-dev:armhf libxv-dev:armhf libgtk-3-dev:armhf libwavpack-dev:armhf libtag1-dev:armhf libsoup2.4-dev:armhf libpulse-dev:armhf \
+libbz2-dev:armhf libjack-jackd2-dev:armhf libvpx-dev:armhf cdbs gtk-doc-tools:armhf
+
 ## yocto
 RUN apt-get update && apt-get install -y gawk wget git-core diffstat unzip texinfo  build-essential chrpath socat  xterm locales
 
