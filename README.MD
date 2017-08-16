@@ -27,13 +27,15 @@ Now you get a Docker image named "rockchip" which include a debian multiarch cro
 
 ## Build application
 
-normal application:
+Enter docker shell:
 
-	docker run -v <package dir>:/home/rk/packages rockchip bash -c "cd /home/rk/packages/<package name>; <build command>"
+	docker run -it -v <package dir>:/home/rk/packages rockchip /bin/bash
 
-e.g:
+Start build:
 
-	docker run -v ~/workbench/debian-sdk/packages:/home/rk/packages rockchip bash -c "cd /home/rk/packages/mpp; DEB_BUILD_OPTIONS=nocheck debuild  -i -nc -us -uc -b -d  -aarmhf"
+    cd /home/rk/packages/<package-name>
+    DEB_BUILD_OPTIONS=nocheck debuild  -i -nc -us -uc -b -d  -aarmhf
+    ls ../ | grep *.deb
 
 ## Modify image
 
