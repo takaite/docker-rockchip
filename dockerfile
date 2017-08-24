@@ -43,6 +43,14 @@ libfluidsynth-dev:armhf libfaad-dev:armhf libexif-dev:armhf libexempi-dev:armhf 
 libdvdnav-dev:armhf libde265-dev:armhf libdca-dev:armhf libcurl4-gnutls-dev:armhf libchromaprint-dev:armhf libcairo2-dev:armhf \
 libbs2b-dev:armhf libass-dev:armhf ladspa-sdk:armhf libwayland-dev:armhf libmagick++-dev:armhf
 
+## opencv 
+RUN apt-get update && apt-get install -y libhighgui-dev:armhf libopencv-calib3d-dev:armhf libopencv-calib3d2.4v5:armhf \
+libopencv-contrib-dev:armhf libopencv-core-dev:armhf libopencv-core2.4v5:armhf libopencv-features2d-dev:armhf \
+libopencv-features2d2.4v5:armhf libopencv-flann-dev:armhf libopencv-gpu-dev:armhf libopencv-highgui-dev:armhf \
+libopencv-imgproc-dev:armhf libopencv-legacy-dev:armhf libopencv-ml-dev:armhf libopencv-objdetect-dev:armhf \
+libopencv-ocl-dev:armhf libopencv-photo-dev:armhf libopencv-stitching-dev:armhf libopencv-superres-dev:armhf \
+libopencv-ts-dev:armhf libopencv-video-dev:armhf libopencv-videostab-dev:armhf
+
 ## yocto
 RUN apt-get update && apt-get install -y gawk wget git-core diffstat unzip texinfo  build-essential chrpath socat  xterm locales
 
