@@ -25,7 +25,7 @@ RUN cp /usr/lib/pkgconfig/xf86dgaproto.pc /usr/lib/arm-linux-gnueabihf/pkgconfig
 ## qt-multimedia
 RUN apt-get update && apt-get install -y qt5-qmake qt5-qmake:armhf qtbase5-dev:armhf qttools5-dev-tools:armhf qtbase5-dev-tools:armhf libpulse-dev:armhf \
 	qtbase5-private-dev:armhf qtbase5-dev:armhf libasound2-dev:armhf libqt5quick5:armhf libqt5multimediaquick-p5:armhf qtdeclarative5-dev:armhf \
-	libopenal-dev:armhf qtmultimedia5-examples:armhf
+	libopenal-dev:armhf qtmultimedia5-examples:armhf libqt5multimediawidgets5:armhf qtmultimedia5-dev:armhf qtconnectivity5-dev:armhf
 
 ## gstreamer-plugin-good
 RUN apt-get update && apt-get install -y libgstreamer1.0-dev:armhf libraw1394-dev:armhf libiec61883-dev:armhf libavc1394-dev:armhf libv4l-dev:armhf \
