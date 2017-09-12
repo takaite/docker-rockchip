@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y crossbuild-essential-armhf
 # perpare build dependencies
 RUN apt-get update && apt-get install -y \
 	sudo git fakeroot devscripts cmake vim qemu-user-static binfmt-support dh-make dh-exec \
-	pkg-kde-tools device-tree-compiler bc cpio parted dosfstools mtools libssl-dev
+	pkg-kde-tools device-tree-compiler bc cpio parted dosfstools mtools libssl-dev g++-arm-linux-gnueabihf
 
 RUN apt-get update && apt-get build-dep -y -a armhf libdrm
 RUN apt-get update && apt-get build-dep -y -a armhf xorg-server
@@ -26,6 +26,20 @@ RUN cp /usr/lib/pkgconfig/xf86dgaproto.pc /usr/lib/arm-linux-gnueabihf/pkgconfig
 RUN apt-get update && apt-get install -y qt5-qmake qt5-qmake:armhf qtbase5-dev:armhf qttools5-dev-tools:armhf qtbase5-dev-tools:armhf libpulse-dev:armhf \
 	qtbase5-private-dev:armhf qtbase5-dev:armhf libasound2-dev:armhf libqt5quick5:armhf libqt5multimediaquick-p5:armhf qtdeclarative5-dev:armhf \
 	libopenal-dev:armhf qtmultimedia5-examples:armhf libqt5multimediawidgets5:armhf qtmultimedia5-dev:armhf qtconnectivity5-dev:armhf
+
+## opencv 
+RUN apt-get update && apt-get install -y libhighgui-dev:armhf libopencv-calib3d-dev:armhf libopencv-calib3d2.4v5:armhf \
+libopencv-contrib-dev:armhf libopencv-core-dev:armhf libopencv-core2.4v5:armhf libopencv-features2d-dev:armhf \
+libopencv-features2d2.4v5:armhf libopencv-flann-dev:armhf libopencv-gpu-dev:armhf libopencv-highgui-dev:armhf \
+libopencv-imgproc-dev:armhf libopencv-legacy-dev:armhf libopencv-ml-dev:armhf libopencv-objdetect-dev:armhf \
+libopencv-ocl-dev:armhf libopencv-photo-dev:armhf libopencv-stitching-dev:armhf libopencv-superres-dev:armhf \
+libopencv-ts-dev:armhf libopencv-video-dev:armhf libopencv-videostab-dev:armhf libopencv-calib3d2.4v5:armhf
+RUN apt-get download libopencv-dev:armhf 
+RUN dpkg -x libopencv*.deb /
+
+## boost
+RUN apt-get update && apt-get install -y libboost1.62-dev:armhf libboost-graph-parallel-dev:armhf libboost-mpi1.62.0:armhf \
+ libboost-all-dev:armhf
 
 ## gstreamer-plugin-good
 RUN apt-get update && apt-get install -y libgstreamer1.0-dev:armhf libraw1394-dev:armhf libiec61883-dev:armhf libavc1394-dev:armhf libv4l-dev:armhf \
@@ -42,20 +56,6 @@ libsbc-dev:armhf libgme-dev:armhf libglu1-mesa-dev:armhf libglib2.0-dev:armhf li
 libfluidsynth-dev:armhf libfaad-dev:armhf libexif-dev:armhf libexempi-dev:armhf libegl1-mesa-dev:armhf \
 libdvdnav-dev:armhf libde265-dev:armhf libdca-dev:armhf libcurl4-gnutls-dev:armhf libchromaprint-dev:armhf libcairo2-dev:armhf \
 libbs2b-dev:armhf libass-dev:armhf ladspa-sdk:armhf libwayland-dev:armhf
-
-## opencv 
-RUN apt-get update && apt-get install -y libhighgui-dev:armhf libopencv-calib3d-dev:armhf libopencv-calib3d2.4v5:armhf \
-libopencv-contrib-dev:armhf libopencv-core-dev:armhf libopencv-core2.4v5:armhf libopencv-features2d-dev:armhf \
-libopencv-features2d2.4v5:armhf libopencv-flann-dev:armhf libopencv-gpu-dev:armhf libopencv-highgui-dev:armhf \
-libopencv-imgproc-dev:armhf libopencv-legacy-dev:armhf libopencv-ml-dev:armhf libopencv-objdetect-dev:armhf \
-libopencv-ocl-dev:armhf libopencv-photo-dev:armhf libopencv-stitching-dev:armhf libopencv-superres-dev:armhf \
-libopencv-ts-dev:armhf libopencv-video-dev:armhf libopencv-videostab-dev:armhf libopencv-calib3d2.4v5:armhf
-RUN apt-get download libopencv-dev:armhf 
-RUN dpkg -x libopencv*.deb /
-
-## boost
-RUN apt-get update && apt-get install -y libboost1.62-dev:armhf libboost-graph-parallel-dev:armhf libboost-mpi1.62.0:armhf \
- libboost-all-dev:armhf
 
 ## yocto
 RUN apt-get update && apt-get install -y gawk wget git-core diffstat unzip texinfo  build-essential chrpath socat  xterm locales
