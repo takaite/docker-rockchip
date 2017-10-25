@@ -34,7 +34,7 @@ Enter docker shell:
 Start build:
 
     cd /home/rk/packages/<package-name>
-    DEB_BUILD_OPTIONS=nocheck debuild  -i -nc -us -uc -b -d  -aarmhf
+    DEB_BUILD_OPTIONS=nocheck dpkg-buildpackage -rfakeroot -b -d -uc -us -aarmhf
     ls ../ | grep *.deb
 
 ## Modify image
