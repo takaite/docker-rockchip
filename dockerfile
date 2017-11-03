@@ -57,6 +57,10 @@ libfluidsynth-dev:armhf libfaad-dev:armhf libexif-dev:armhf libexempi-dev:armhf 
 libdvdnav-dev:armhf libde265-dev:armhf libdca-dev:armhf libcurl4-gnutls-dev:armhf libchromaprint-dev:armhf libcairo2-dev:armhf \
 libbs2b-dev:armhf libass-dev:armhf ladspa-sdk:armhf libwayland-dev:armhf
 
+# xf86-video-armsorc
+RUN apt-get update && apt-get install -y xserver-xorg-dev:armhf
+RUN cp /usr/lib/pkgconfig/* /usr/lib/arm-linux-gnueabihf/pkgconfig/
+
 ## yocto
 RUN apt-get update && apt-get install -y gawk wget git-core diffstat unzip texinfo  build-essential chrpath socat  xterm locales
 
