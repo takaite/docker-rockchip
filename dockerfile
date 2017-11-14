@@ -37,10 +37,6 @@ libopencv-ts-dev:armhf libopencv-video-dev:armhf libopencv-videostab-dev:armhf l
 RUN apt-get download libopencv-dev:armhf 
 RUN dpkg -x libopencv*.deb /
 
-## boost
-RUN apt-get update && apt-get install -y libboost1.62-dev:armhf libboost-graph-parallel-dev:armhf libboost-mpi1.62.0:armhf \
- libboost-all-dev:armhf
-
 ## gstreamer-plugin-good
 RUN apt-get update && apt-get install -y libgstreamer1.0-dev:armhf libraw1394-dev:armhf libiec61883-dev:armhf libavc1394-dev:armhf libv4l-dev:armhf \
 libgudev-1.0-dev:armhf libgstreamer-plugins-base1.0-dev:armhf libcairo2-dev:armhf liborc-0.4-dev:armhf libcaca-dev:armhf libspeex-dev:armhf libpng-dev:armhf \
