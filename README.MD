@@ -6,9 +6,9 @@ To install Docker, you need the 64-bit version of one of these Ubuntu versions:
 * Trusty 14.04 (LTS)
 
 ## Install Docker
-Use this command to install the latest version of Docker:
+Use this command to install the latest version of Docker(replace docker with docker.io in ubuntu 14.04):
 
-	apt-get install docker
+	apt-get install docker qemu-user-static binfmt-support
 
 Please add your user to the Docker user group like this:
 
