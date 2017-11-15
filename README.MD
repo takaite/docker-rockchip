@@ -10,11 +10,6 @@ Use this command to install the latest version of Docker(replace docker with doc
 
 	apt-get install docker qemu-user-static binfmt-support
 
-Please add your user to the Docker user group like this:
-
-	sudo usermod -aG docker <username>
-	newgrp docker
-
 Start run Docker deamon:
 
 	service docker start
