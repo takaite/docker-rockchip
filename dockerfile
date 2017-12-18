@@ -72,6 +72,7 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 
 ADD ./overlay/  /
 
+RUN echo "Update Headers!"
 RUN dpkg -i /packages/librockchip-*.deb
 RUN dpkg -x /packages/libdrm2_2.4.74-2_armhf.deb /
 RUN dpkg -x /packages/libdrm-dev_2.4.74-2_armhf.deb /
