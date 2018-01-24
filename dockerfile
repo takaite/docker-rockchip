@@ -73,10 +73,10 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 ADD ./overlay/  /
 
 RUN echo "Update Headers!"
-RUN dpkg -i /packages/librockchip-*.deb
-RUN dpkg -x /packages/libdrm2_2.4.74-2_armhf.deb /
-RUN dpkg -x /packages/libdrm-dev_2.4.74-2_armhf.deb /
-RUN dpkg -x /packages/libdrm-rockchip1_2.4.74-2_armhf.deb /
+RUN dpkg -i /packages/mpp/*.deb
+RUN apt-get update && apt-get install -y libsdl2-2.0-0:armhf libcdio-paranoia1:armhf libjs-bootstrap libjs-jquery
+RUN dpkg -i /packages/ffmpeg/*.deb || true
+RUN find /packages/libdrm -name '*.deb' | sudo xargs -I{} dpkg -x {} /
 
 RUN apt-get update && apt-get install -y -f
 
