@@ -97,7 +97,6 @@ ADD ./overlay/  /
 
 RUN echo "Update Headers!"
 RUN dpkg -i /packages/mpp/*.deb
-RUN dpkg -i /packages/ffmpeg/*.deb || true
 RUN find /packages/libdrm -name '*.deb' | sudo xargs -I{} dpkg -x {} /
 
 RUN apt-get update && apt-get install -y -f
