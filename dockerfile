@@ -57,6 +57,29 @@ libbs2b-dev:armhf libass-dev:armhf ladspa-sdk:armhf libwayland-dev:armhf
 RUN apt-get update && apt-get install -y xserver-xorg-dev:armhf
 RUN cp /usr/lib/pkgconfig/* /usr/lib/arm-linux-gnueabihf/pkgconfig/
 
+# FFmpeg
+RUN apt-get update && apt-get install -y frei0r-plugins-dev:armhf flite1-dev:armhf libzmq3-dev:armhf \
+ladspa-sdk:armhf libass-dev:armhf libbluray-dev:armhf libbs2b-dev:armhf libbz2-dev:armhf libcaca-dev:armhf libxvmc-dev:armhf \
+libcdio-paranoia-dev:armhf libchromaprint-dev:armhf libdc1394-22-dev:armhf libdrm-dev:armhf libfontconfig1-dev:armhf \
+libfreetype6-dev:armhf libfribidi-dev:armhf libgme-dev:armhf libgsm1-dev:armhf libiec61883-dev:armhf libxvidcore-dev:armhf \
+libavc1394-dev:armhf libjack-jackd2-dev:armhf libleptonica-dev:armhf liblzma-dev:armhf libmp3lame-dev:armhf libxcb-xfixes0-dev:armhf \
+libopenal-dev:armhf libomxil-bellagio-dev:armhf libopencore-amrnb-dev:armhf libzvbi-dev:armhf libxv-dev:armhf libxcb-shm0-dev:armhf \
+libopencore-amrwb-dev:armhf libopencv-imgproc-dev:armhf libopenjp2-7-dev:armhf libopenmpt-dev:armhf libxml2-dev:armhf \
+libopus-dev:armhf libpulse-dev:armhf librubberband-dev:armhf librsvg2-dev:armhf libsctp-dev:armhf libxcb-shape0-dev:armhf \
+libsdl2-dev:armhf libshine-dev:armhf libsnappy-dev:armhf libsoxr-dev:armhf libspeex-dev:armhf libssh-gcrypt-dev:armhf \
+libtesseract-dev:armhf libtheora-dev:armhf libtwolame-dev:armhf libva-dev:armhf libvdpau-dev:armhf libx265-dev:armhf \
+libvo-amrwbenc-dev:armhf libvorbis-dev:armhf libvpx-dev:armhf libwavpack-dev:armhf libwebp-dev:armhf libx264-dev:armhf \
+doxygen cleancss node-less
+
+# Mpv
+RUN apt-get update && apt-get install -y libasound2-dev:armhf libass-dev:armhf libavcodec-dev:armhf libavdevice-dev:armhf \
+libavfilter-dev:armhf libavformat-dev:armhf libavresample-dev:armhf libavutil-dev:armhf libbluray-dev:armhf libcaca-dev:armhf \
+libcdio-paranoia-dev:armhf libdvdnav-dev:armhf libdvdread-dev:armhf libegl1-mesa-dev:armhf libgbm-dev:armhf \
+libgl1-mesa-dev:armhf libjack-dev:armhf libjpeg-dev:armhf liblcms2-dev:armhf liblua5.2-dev:armhf libpulse-dev:armhf \
+librubberband-dev:armhf libsdl2-dev:armhf libsmbclient-dev:armhf libsndio-dev:armhf libswscale-dev:armhf \
+libuchardet-dev:armhf libva-dev:armhf libvdpau-dev:armhf libwayland-dev:armhf libx11-dev:armhf libxinerama-dev:armhf \
+libxkbcommon-dev:armhf libxrandr-dev:armhf libxss-dev:armhf libxv-dev:armhf
+
 ## yocto
 RUN apt-get update && apt-get install -y gawk wget git-core diffstat unzip texinfo  build-essential chrpath socat  xterm locales
 
@@ -74,7 +97,6 @@ ADD ./overlay/  /
 
 RUN echo "Update Headers!"
 RUN dpkg -i /packages/mpp/*.deb
-RUN apt-get update && apt-get install -y libsdl2-2.0-0:armhf libcdio-paranoia1:armhf libjs-bootstrap libjs-jquery
 RUN dpkg -i /packages/ffmpeg/*.deb || true
 RUN find /packages/libdrm -name '*.deb' | sudo xargs -I{} dpkg -x {} /
 
