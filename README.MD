@@ -2,7 +2,7 @@
 To install Docker, you need the 64-bit version of one of these Ubuntu versions:
 
 * Bionic 18.04 (LTS)
-* Xenial 18.04 (LTS)
+* Xenial 16.04 (LTS)
 * Trusty 14.04 (LTS)
 
 Note: the dockerfile is used for arm64 socs by default.
