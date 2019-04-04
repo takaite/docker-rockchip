@@ -96,8 +96,8 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 ADD ./overlay/  /
 
 RUN echo "Update Headers!"
-RUN dpkg -i /packages/mpp/*.deb
-RUN find /packages/libdrm -name '*.deb' | sudo xargs -I{} dpkg -x {} /
+RUN dpkg -i /packages/armhf/mpp/*.deb
+RUN find /packages/armhf/libdrm -name '*.deb' | sudo xargs -I{} dpkg -x {} /
 
 RUN apt-get update && apt-get install -y -f
 
