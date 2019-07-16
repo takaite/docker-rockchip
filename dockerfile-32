@@ -1,5 +1,5 @@
 FROM debian:stretch
-MAINTAINER Jacob Chen "jacob2.chen@rock-chips.com"
+MAINTAINER Caesar Wang "wxt@rock-chips.com"
 
 # setup multiarch enviroment
 RUN dpkg --add-architecture armhf
@@ -20,21 +20,21 @@ RUN apt-get update && apt-get install -y libgstreamer-plugins-bad1.0-dev:armhf l
 libgstreamermm-1.0-dev:armhf libqt5gstreamer-dev:armhf libqtgstreamer-dev:armhf \
 libxfont1-dev:armhf libxxf86dga-dev:armhf libunwind-dev:armhf  libnetcdf-dev:armhf
 
-RUN cp /usr/lib/pkgconfig/xf86dgaproto.pc /usr/lib/arm-linux-gnueabihf/pkgconfig/xf86dgaproto.pc 
+RUN cp /usr/lib/pkgconfig/xf86dgaproto.pc /usr/lib/arm-linux-gnueabihf/pkgconfig/xf86dgaproto.pc
 
 ## qt-multimedia
 RUN apt-get update && apt-get install -y qt5-qmake qt5-qmake:armhf qtbase5-dev:armhf qttools5-dev-tools:armhf qtbase5-dev-tools:armhf libpulse-dev:armhf \
 	qtbase5-private-dev:armhf qtbase5-dev:armhf libasound2-dev:armhf libqt5quick5:armhf libqt5multimediaquick-p5:armhf qtdeclarative5-dev:armhf \
 	libopenal-dev:armhf qtmultimedia5-examples:armhf libqt5multimediawidgets5:armhf qtmultimedia5-dev:armhf qtconnectivity5-dev:armhf
 
-## opencv 
+## opencv
 RUN apt-get update && apt-get install -y libhighgui-dev:armhf libopencv-calib3d-dev:armhf libopencv-calib3d2.4v5:armhf \
 libopencv-contrib-dev:armhf libopencv-core-dev:armhf libopencv-core2.4v5:armhf libopencv-features2d-dev:armhf \
 libopencv-features2d2.4v5:armhf libopencv-flann-dev:armhf libopencv-gpu-dev:armhf libopencv-highgui-dev:armhf \
 libopencv-imgproc-dev:armhf libopencv-legacy-dev:armhf libopencv-ml-dev:armhf libopencv-objdetect-dev:armhf \
 libopencv-ocl-dev:armhf libopencv-photo-dev:armhf libopencv-stitching-dev:armhf libopencv-superres-dev:armhf \
 libopencv-ts-dev:armhf libopencv-video-dev:armhf libopencv-videostab-dev:armhf libopencv-calib3d2.4v5:armhf
-RUN apt-get download libopencv-dev:armhf 
+RUN apt-get download libopencv-dev:armhf
 RUN dpkg -x libopencv*.deb /
 
 ## gstreamer-plugin-good
@@ -83,10 +83,10 @@ libxkbcommon-dev:armhf libxrandr-dev:armhf libxss-dev:armhf libxv-dev:armhf
 ## yocto
 RUN apt-get update && apt-get install -y gawk wget git-core diffstat unzip texinfo  build-essential chrpath socat  xterm locales
 
-RUN locale-gen en_US.UTF-8  
-ENV LANG en_US.UTF-8  
-ENV LANGUAGE en_US:en  
-ENV LC_ALL en_US.UTF-8    
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     echo 'LANG="en_US.UTF-8"'>/etc/default/locale && \

@@ -1,5 +1,5 @@
 FROM debian:stretch
-MAINTAINER Jacob Chen "jacob2.chen@rock-chips.com"
+MAINTAINER Caesar Wang "wxt@rock-chips.com"
 
 # setup multiarch enviroment
 RUN dpkg --add-architecture arm64
@@ -97,7 +97,6 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
 ADD ./overlay/  /
 
 RUN echo "Update Headers!"
-#RUN dpkg -i /packages/mpp/*.deb
 RUN dpkg -i /packages/arm64/mpp/*.deb
 RUN dpkg -i /packages/arm64/gstreamer/*.deb
 RUN dpkg -i /packages/arm64/libmali/*.deb
