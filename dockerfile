@@ -84,6 +84,10 @@ libxkbcommon-dev:arm64 libxrandr-dev:arm64 libxss-dev:arm64 libxv-dev:arm64
 #Openbox
 RUN apt-get install -f -y debhelper:arm64 gettext:arm64 libstartup-notification0-dev:arm64 libxrender-dev:arm64 pkg-config:arm64 libglib2.0-dev:arm64 libxml2-dev:arm64 perl libxt-dev:arm64 libxinerama-dev:arm64 libxrandr-dev:arm64 libpango1.0-dev:arm64 libx11-dev:arm64  autoconf:arm64 automake:arm64 libimlib2-dev:arm64 libxcursor-dev:arm64 autopoint:arm64 librsvg2-dev:arm64 libxi-dev:arm64
 
+## echo "deb http://http.debian.net/debian/ buster main contrib non-free" >> /etc/apt/sources.list
+## apt-get update
+## sudo apt-get install x11proto-dev=2018.4-4 libxcb-xf86dri0-dev:arm64
+
 ## yocto
 RUN apt-get update && apt-get install -y gawk wget git-core diffstat unzip texinfo  build-essential chrpath socat xterm locales
 
@@ -98,6 +102,10 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     update-locale LANG=en_US.UTF-8
 
 ADD ./overlay/  /
+## rag
+RUN mkdir -p /usr/include/rga/
+RUN cp packages/arm64/rga/include/* /usr/include/rga/
+RUN cp packages/arm64/rga/lib/librga.so  /usr/lib/
 
 RUN echo "Update Headers!"
 RUN dpkg -i /packages/arm64/mpp/*.deb

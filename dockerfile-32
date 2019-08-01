@@ -7,7 +7,6 @@ RUN echo "deb-src http://deb.debian.org/debian stretch main" >> /etc/apt/sources
 RUN echo "deb-src http://deb.debian.org/debian stretch-updates main" >> /etc/apt/sources.list
 RUN echo "deb-src http://security.debian.org stretch/updates main" >> /etc/apt/sources.list
 RUN apt-get update && apt-get install -y crossbuild-essential-armhf
-
 # perpare build dependencies
 RUN apt-get update && apt-get install -y \
 	sudo git fakeroot devscripts cmake vim qemu-user-static binfmt-support dh-make dh-exec \
@@ -83,6 +82,11 @@ libxkbcommon-dev:armhf libxrandr-dev:armhf libxss-dev:armhf libxv-dev:armhf
 # Openbox
 RUN apt-get install -f -y debhelper:armhf gettext:armhf libstartup-notification0-dev:armhf libxrender-dev:armhf pkg-config:armhf libglib2.0-dev:armhf libxml2-dev:armhf perl libxt-dev:armhf libxinerama-dev:armhf libxrandr-dev:armhf libpango1.0-dev:armhf libx11-dev:armhf  autoconf:armhf automake:armhf libimlib2-dev:armhf libxcursor-dev:armhf autopoint:armhf librsvg2-dev:armhf libxi-dev:armhf
 
+## echo "deb http://http.debian.net/debian/ buster main contrib non-free" >> /etc/apt/sources.list
+## apt-get update
+## sudo apt-get install x11proto-dev=2018.4-4 libxcb-xf86dri0-dev:armhf
+
+
 ## yocto
 RUN apt-get update && apt-get install -y gawk wget git-core diffstat unzip texinfo  build-essential chrpath socat  xterm locales
 
@@ -97,6 +101,11 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     update-locale LANG=en_US.UTF-8
 
 ADD ./overlay/  /
+
+## rag
+RUN mkdir -p /usr/include/rga/
+RUN cp packages/armhf/rga/include/* /usr/include/rga/
+RUN cp packages/armhf/rga/lib/librga.so  /usr/lib/
 
 RUN echo "Update Headers!"
 RUN dpkg -i /packages/armhf/mpp/*.deb
