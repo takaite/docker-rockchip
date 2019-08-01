@@ -81,8 +81,11 @@ librubberband-dev:arm64 libsdl2-dev:arm64 libsmbclient-dev:arm64 libsndio-dev:ar
 libuchardet-dev:arm64 libva-dev:arm64 libvdpau-dev:arm64 libwayland-dev:arm64 libx11-dev:arm64 libxinerama-dev:arm64 \
 libxkbcommon-dev:arm64 libxrandr-dev:arm64 libxss-dev:arm64 libxv-dev:arm64
 
+#Openbox
+RUN apt-get install -f -y debhelper:arm64 gettext:arm64 libstartup-notification0-dev:arm64 libxrender-dev:arm64 pkg-config:arm64 libglib2.0-dev:arm64 libxml2-dev:arm64 perl libxt-dev:arm64 libxinerama-dev:arm64 libxrandr-dev:arm64 libpango1.0-dev:arm64 libx11-dev:arm64  autoconf:arm64 automake:arm64 libimlib2-dev:arm64 libxcursor-dev:arm64 autopoint:arm64 librsvg2-dev:arm64 libxi-dev:arm64
+
 ## yocto
-RUN apt-get update && apt-get install -y gawk wget git-core diffstat unzip texinfo  build-essential chrpath socat  xterm locales
+RUN apt-get update && apt-get install -y gawk wget git-core diffstat unzip texinfo  build-essential chrpath socat xterm locales
 
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8

@@ -80,6 +80,9 @@ librubberband-dev:armhf libsdl2-dev:armhf libsmbclient-dev:armhf libsndio-dev:ar
 libuchardet-dev:armhf libva-dev:armhf libvdpau-dev:armhf libwayland-dev:armhf libx11-dev:armhf libxinerama-dev:armhf \
 libxkbcommon-dev:armhf libxrandr-dev:armhf libxss-dev:armhf libxv-dev:armhf
 
+# Openbox
+RUN apt-get install -f -y debhelper:armhf gettext:armhf libstartup-notification0-dev:armhf libxrender-dev:armhf pkg-config:armhf libglib2.0-dev:armhf libxml2-dev:armhf perl libxt-dev:armhf libxinerama-dev:armhf libxrandr-dev:armhf libpango1.0-dev:armhf libx11-dev:armhf  autoconf:armhf automake:armhf libimlib2-dev:armhf libxcursor-dev:armhf autopoint:armhf librsvg2-dev:armhf libxi-dev:armhf
+
 ## yocto
 RUN apt-get update && apt-get install -y gawk wget git-core diffstat unzip texinfo  build-essential chrpath socat  xterm locales
 
