@@ -58,6 +58,9 @@ libbs2b-dev:arm64 libass-dev:arm64 ladspa-sdk:arm64 libwayland-dev:arm64
 RUN apt-get update && apt-get install -y xserver-xorg-dev:arm64
 RUN cp /usr/lib/pkgconfig/* /usr/lib/aarch64-linux-gnu/pkgconfig/
 
+# xserver
+RUN apt-get update && apt-get install -y libxtst-dev:arm64
+
 # FFmpeg
 RUN apt-get update && apt-get install -y frei0r-plugins-dev:arm64 flite1-dev:arm64 libzmq3-dev:arm64 \
 ladspa-sdk:arm64 libass-dev:arm64 libbluray-dev:arm64 libbs2b-dev:arm64 libbz2-dev:arm64 libcaca-dev:arm64 libxvmc-dev:arm64 \

@@ -56,6 +56,9 @@ libbs2b-dev:armhf libass-dev:armhf ladspa-sdk:armhf libwayland-dev:armhf
 RUN apt-get update && apt-get install -y xserver-xorg-dev:armhf
 RUN cp /usr/lib/pkgconfig/* /usr/lib/arm-linux-gnueabihf/pkgconfig/
 
+# xserver
+RUN apt-get update && apt-get install -y libxtst-dev:armhf
+
 # FFmpeg
 RUN apt-get update && apt-get install -y frei0r-plugins-dev:armhf flite1-dev:armhf libzmq3-dev:armhf \
 ladspa-sdk:armhf libass-dev:armhf libbluray-dev:armhf libbs2b-dev:armhf libbz2-dev:armhf libcaca-dev:armhf libxvmc-dev:armhf \
