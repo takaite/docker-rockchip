@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y crossbuild-essential-arm64
 # perpare build dependencies
 RUN apt-get update && apt-get install -y \
 	sudo git fakeroot devscripts cmake vim qemu-user-static binfmt-support dh-make dh-exec \
-	pkg-kde-tools device-tree-compiler bc cpio parted dosfstools mtools libssl-dev g++-aarch64-linux-gnu
+	pkg-kde-tools device-tree-compiler bc cpio parted dosfstools mtools libssl-dev g++-aarch64-linux-gnu time expect libgcrypt20-dev libgpg-error-dev
 
 RUN apt-get update && apt-get build-dep -y -a arm64 libdrm
 RUN apt-get update && apt-get build-dep -y -a arm64 xorg-server
