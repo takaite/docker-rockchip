@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y crossbuild-essential-arm64
 # perpare build dependencies
 RUN apt-get update && apt-get install -y \
 	sudo git fakeroot devscripts cmake vim qemu-user-static binfmt-support dh-make dh-exec \
-	pkg-kde-tools device-tree-compiler bc cpio parted dosfstools mtools libssl-dev g++-aarch64-linux-gnu time expect libgcrypt20-dev libgpg-error-dev
+	pkg-kde-tools device-tree-compiler bc cpio parted dosfstools mtools libssl-dev g++-aarch64-linux-gnu time expect
 
 RUN apt-get update && apt-get build-dep -y -a arm64 libdrm
 RUN apt-get update && apt-get build-dep -y -a arm64 xorg-server
@@ -93,6 +93,7 @@ RUN apt-get install -f -y debhelper:arm64 gettext:arm64 libstartup-notification0
 
 ## yocto
 RUN apt-get update && apt-get install -y gawk wget git-core diffstat unzip texinfo  build-essential chrpath socat xterm locales
+RUN apt-get install -y libgpg-error-dev libgcrypt11-dev libgcrypt20-dev patchelf
 
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
