@@ -27,5 +27,7 @@ RUN sed -i -e '/\%sudo/ c \%sudo ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
 RUN usermod -a -G sudo rk
 #RUN sudo   ALL=(ALL:ALL) ALL
 
+RUN apt-get install -y lzop gawk
+
 USER rk
 
